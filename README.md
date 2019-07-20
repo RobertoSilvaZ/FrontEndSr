@@ -14,8 +14,8 @@ Cellphone: (+511) 955 0909 84
 
 
 ## Development server
-1. git clone git@bitbucket.org:robertosilvaz/frontendsr-avantica.git
-2. cd /frontendsr-avantica
+1. git clone 
+2. cd /frontendsr
 3. Run `npm install` for install dependencies. 
 4. Run `ng serve` for a dev server. 
 5. Navigate to `http://localhost:4200/`. The app will automatically reload  
