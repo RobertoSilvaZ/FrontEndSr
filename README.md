@@ -26,6 +26,4 @@ Run `ng test` to execute the unit tests via Karma.
 
 ## Demo live
 Click here for see the demo: [view](http://proyecto-prueba.com/RobertoSilva/#/request/)
-
-## Repository
-[https://bitbucket.org/robertosilvaz/frontendsr-avantica/](https://bitbucket.org/robertosilvaz/frontendsr-avantica/)
+ 
