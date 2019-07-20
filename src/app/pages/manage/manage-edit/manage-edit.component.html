@@ -1,0 +1,73 @@
+<app-title titlePage="Manage data"></app-title>
+<div class="row">
+    <div class="col-sm-3">
+        <app-menu></app-menu>
+    </div>
+    <div class="col-sm-9">
+        <div class="card">
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit(formUser)" #formUser="ngForm" class="validate-form">
+                    <button type="submit" class="btn btn-right btn-main"><i class="fa fa-save" aria-hidden="true"></i>
+                        &nbsp;Save</button>
+
+                    <div class="form-group col-md-6 pl-0">
+                        <label class="title" for="user_id">Key name</label>
+                        <input [(ngModel)]="this.user.user_id" type="text" required class="form-control" name="user_id" id="user_id">
+                        <small *ngIf="formUser.submitted && formUser.controls['user_id'].errors" class="form-text text-muted text-danger">This field is required</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="title" for="description">Description</label>
+                        <textarea [(ngModel)]="this.user.description" required class="form-control" id="description" name="description" rows=3></textarea>
+                        <small *ngIf="formUser.submitted && formUser.controls[ 'description'].errors" class="form-text text-muted text-danger">This field is required</small>
+                    </div>
+
+                    <div class="form-group col-md-6 pl-0">
+                        <label class="title" for="type">Type</label>
+                        <select [(ngModel)]="this.user.type" class="form-control" id="type" name="type">
+                            <option value="1" >1</option>
+                            <option value="2" >2</option>
+                            <option value="3" >3</option>
+                            <option value="4" >4</option>
+                            <option value="5" >5</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <input [(ngModel)]="this.user.personal" type="checkbox" class="form-check-input" id="personal" name="personal">
+                        <label for="personal"> Is this personal data?</label>
+                    </div>
+                    <br><br>
+
+                    <table #tablePossible class="table table-hover table-borderless">
+                        <thead>
+                            <tr class="thead-dark">
+                                <th scope="col" colspan=3>POSSIBLE VALUES</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" width="20%">VALUE</th>
+                                <th scope="col">DESCRIPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let possible of this.user.possible; let idx=index">
+                                <th scope="row"> {{possible.value}}</th>
+                                <td> {{possible.description}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input [(ngModel)]="this.possible_value" type="text" class="form-control" name="possible_value">
+                                    <small *ngIf="possible_value.length==0 && !validTable" class="form-text text-muted text-danger">This field is required</small>
+                                </th>
+                                <td> <input [(ngModel)]="this.possible_description" type="text" class="form-control" name="possible_description">
+                                    <small *ngIf="possible_description.length==0 && !validTable" class="form-text text-muted text-danger">This field is required</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="javascript:void(0)" (click)="addValue()" id="btn_addValue" class="btn btn-ghost mt-0"><i class="fa fa-plus" 
+                            aria-hidden="true" ></i> Add possible value</a>
+                </form>
+            </div>
+        </div>
+    </div>

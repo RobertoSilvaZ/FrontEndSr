@@ -1,0 +1,36 @@
+
+    <app-title titlePage="Request"></app-title>
+
+    <nav class="nav nav-pills nav-justified">
+        <a class="nav-link active" href="javascript:void(0)" data-filter=''>All</a>
+        <a class="nav-link" href="javascript:void(0)" data-filter='pending'>PENDING</a>
+        <a class="nav-link" href="javascript:void(0)" data-filter='approved'>APPROVED</a> 
+        <a class="nav-link" href="javascript:void(0)" data-filter='denied'>DENIED</a> 
+      </nav>
+    
+    <div class="row" *ngIf="requests.length == 0">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                Not found data with this status
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover  table-borderless" *ngIf="requests.length > 0">
+      <thead >
+          <tr class="thead-dark">
+              <th scope="col" colspan=3>PENDING REQUESTS</th> 
+          </tr>
+          <tr>
+              <th scope="col">DATE</th>
+              <th scope="col">REASON</th> 
+              <th class="text-center" scope="col">STATUS</th> 
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let request of requests">
+              <th scope="row">{{request.create_at}}</th>
+              <td>{{request.reason}}</td> 
+              <td><span class="status {{request.status[0].slug}}">{{request.status[0].name}}</span></td> 
+          </tr> 
+      </tbody>
+  </table>

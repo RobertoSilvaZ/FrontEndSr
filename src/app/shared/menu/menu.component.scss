@@ -1,0 +1,24 @@
+@import "../../../assets/css/variables.scss";
+.list-group-item {
+    background-color: $color4;
+    color: $color3;
+    position: relative;
+    &.active {
+        background-color: $color1;
+        border-color: $color1
+    }
+    &:hover {
+        opacity: 0.9
+    }
+    &.active,
+    &:hover {
+        &:before {
+            content: "\f105";
+            font-family: "fontawesome";
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: $color3
+        }
+    }
+}

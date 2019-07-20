@@ -1,0 +1,39 @@
+<app-title titlePage="Manage data"></app-title>
+<div class="row">
+    <div class="col-sm-3">
+        <app-menu></app-menu>
+    </div>
+    <div class="col-sm-9">
+        <div class="card">
+            <div class="card-body">
+                <a [routerLink]="['edit',1]" class="btn btn-right btn-main"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this</a>
+                <h2 class="title">{{this.user.user_id}}</h2>
+                <h3 class="title">Description</h3>
+                <p>{{this.user.description}}</p>
+                <h3 class="title">Type</h3>
+                <p>{{this.user.type}}</p>
+                <h3 class="title">Sensitivity</h3>
+                <p *ngIf="this.user.personal">This is personal data, and cannot be distributed in raw form</p>
+                <p *ngIf="!this.user.personal">This is not personal data, and can be distributed in raw form</p>
+
+                <table class="table table-hover  table-borderless">
+                    <thead>
+                        <tr class="thead-dark">
+                            <th scope="col" colspan=2>POSSIBLE VALUES</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">VALUE</th>
+                            <th scope="col">DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let possible of user.possible">
+                            <th scope="row" width="20%">{{possible.value}}</th>
+                            <td>{{possible.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+@import "../../../assets/css/variables.scss";
+.status {
+    display: block;
+    padding: 5px 8px;
+    border-radius: 4px;
+    color: $color3;
+    text-align: center;
+    &.pending{
+        background-color: $pending
+    }
+    &.approved{
+        background-color: $approved
+    }
+    &.denied{
+        background-color: $denied
+    } 
+}
+
+nav {
+    border-bottom: 1px solid $color2;
+    margin-bottom: 15px;
+    .nav-link {
+        border-bottom: 4px solid $color3;
+        color: $color4;
+        border-radius: 0;
+        cursor: pointer;
+        &.active, &:hover {
+            background: none!important;
+            border-color: $color4
+        }
+    }
+}
