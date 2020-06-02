@@ -1,6 +1,6 @@
 # Test FrontEnd Sr.
 
-This project was generated with Angular CLI version 6.2.4.
+This project was generated with Angular CLI version 6.2.4
 
 ## Author
 
